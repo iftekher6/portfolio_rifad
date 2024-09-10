@@ -1,5 +1,5 @@
 import React from 'react'
-import profile from "../../../assets/images/about/rifad.png"
+import profile from "../../../assets/images/about/Rifad.png"
 const Summary = () => {
     return (
         <section id="about" className="about-area">

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Marquee from "react-fast-marquee";
 import { RiFacebookCircleFill, RiTwitterXLine, RiLinkedinFill, RiGithubLine, RiCircleFill, RiDownloadLine } from '@remixicon/react'
-import profile from "../../assets/images/about/rifad.png"
+import profile from "../../assets/images/about/Rifad.png"
 import partner1 from "../../assets/images/client-logos/partner1.png"
 import partner2 from "../../assets/images/client-logos/partner2.png"
 import partner3 from "../../assets/images/client-logos/partner3.png"
