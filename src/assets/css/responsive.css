@@ -223,6 +223,38 @@ Version      : 1.0
      .about-area{
         padding-top: 87px;
      }
+
+
+    
+     
+    .about-image-part {
+        /* padding-bottom: 30px; */
+        padding: 50px;
+        /* max-width: 100%;
+         */
+         overflow: hidden;
+         text-align: center;
+        
+    }
+    .about-image-part h2 {
+        font-size: 45px;
+        line-height: 70px;
+        white-space: nowrap;
+        /* padding: 30px; */
+    }
+
+    .about-image-part p {
+       /* line-height: 25px; */
+       margin-top: -10px;
+       
+        
+    }
+
+     .about-social ul {
+        display: flex;
+        justify-content: center;
+    }
+
     .about-content-part {
         margin-top: 30px;
     }
@@ -283,6 +315,7 @@ Version      : 1.0
 
     body {
         overflow-x: hidden;
+        /* margin: 0; */
 
     }
 
@@ -290,10 +323,7 @@ Version      : 1.0
         width: 40px;
     }
 
-    .about-social ul {
-        display: flex;
-    }
-
+    
     .section-title p {
         padding-right: 10px;
     }
@@ -349,24 +379,6 @@ Version      : 1.0
     .blog-post-caption {
         padding-left: 20px;
         padding-top: 30px;
-    }
-
-    .about-image-part {
-        /* padding-bottom: 30px; */
-        padding: 80px;
-        
-    }
-    .about-image-part h2 {
-        font-size: 45px;
-        line-height: 70px;
-        /* padding: 30px; */
-    }
-
-    .about-image-part p {
-       /* line-height: 25px; */
-       margin-top: -10px;
-       white-space: nowrap;
-        
     }
 
 
