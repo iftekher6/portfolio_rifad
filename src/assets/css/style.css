@@ -36,6 +36,7 @@ Version      : 1.0
 :root {
     --main-color: rgb(180, 180, 180);
     --heading-color: rgb(29, 29, 38);
+    --heading-color: #fff;  
     --primary-color: rgb(196, 240, 0);
     --lighter-color: #1F1F1F;
     --subtitle-color: rgb(119, 119, 125);
@@ -53,6 +54,7 @@ Version      : 1.0
     outline: none;
     box-shadow: none;
 }
+
 
 main {
     position: relative;
@@ -78,6 +80,8 @@ body {
 .about-area {
     padding-top: 115px;
     padding-bottom: 15px;
+  background-image: -webkit-linear-gradient(135deg, #130f40 0%, #000000 74%);
+
 }
 
 .about-single-area {
@@ -131,7 +135,11 @@ body {
 
 .about-image-part {
     text-align: center;
-    padding: 40px;
+    padding-top: 30px;
+    /* padding: 25px; */
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 20px;
     box-shadow: rgba(255, 255, 255, 0.025) 0px 0.362176px 0.651917px -1px inset, rgba(255, 255, 255, 0.036) 0px 3px 5.4px -2px inset;
@@ -161,7 +169,10 @@ body {
 }
 
 .about-image-part h2 {
-    font-size: 40px;
+    margin-top: 30px;
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 35px;
 }
 
 .about-content-part h2 {
@@ -169,6 +180,7 @@ body {
     line-height: 50px;
     margin-bottom: 20px;
     font-weight: 400;
+    /* color : var() */
 }
 
 
@@ -187,7 +199,7 @@ body {
 
 
 .about-social {
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .about-social ul {
@@ -195,7 +207,7 @@ body {
 }
 
 .about-social ul li {
-    display: inline-block;
+    display: block;
     margin: 0px 15px;
 }
 
@@ -204,6 +216,8 @@ body {
     border: 1px solid rgb(255 255 255 / 5%);
     padding: 10px 12px;
     border-radius: 10px;
+    /* margin: 10px 5px; */
+    line-height: 62px;
 }
 
 .about-image-part .dot-shape {
@@ -316,7 +330,7 @@ h5,
 h6,
 .h6,
 .accordion-item .accordion-button {
-    color: var(--main-color);
+    color: var(--heading-color);
     font-family: "DM Sans", sans-serif;
 }
 
@@ -1492,8 +1506,10 @@ html {
 .about-area {
     padding: 100px 0px;
     background-color: #130f40;
-    background-image: -webkit-linear-gradient(220deg, #130f40 0%, #000000 74%);
-    background-image: linear-gradient(230deg, #130f40 0%, #000000 74%);
+    /* background-image: -webkit-linear-gradient(220deg, #130f40 0%, #000000 74%); */
+    /* background-image: linear-gradient(230deg, #130f40 0%, #000000 74%); */
+    /* -webkit-linear-gradient(135deg, #130f40 0%, #000000 74%); */
+
 }
 
 .about-content-part {
@@ -1505,7 +1521,7 @@ html {
     line-height: 48px;
     margin-bottom: 20px;
     text-transform: capitalize;
-    color: var(--main-color);
+    /* color: var(--main-color); */
 }
 
 .about-content-part h2 span {
@@ -1812,7 +1828,7 @@ ul.extra-skills li i {
 * ----------------------------------------------------------------------------------------
 */
 .projects-area {
-    padding-top: 50px;
+    padding-top: 1px;
     padding-bottom: 100px;
     background-color: #130f40;
     background-image: -webkit-linear-gradient(220deg, #130f40 0%, #000000 74%);

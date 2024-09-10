@@ -8,6 +8,7 @@ import partner2 from "../../assets/images/client-logos/partner2.png"
 import partner3 from "../../assets/images/client-logos/partner3.png"
 import partner4 from "../../assets/images/client-logos/partner4.png"
 import partner5 from "../../assets/images/client-logos/partner5.png"
+import jarvis from "../../assets/images/client-logos/download.png"
 import SlideUp from '../../utlits/animations/slideUp';
 
 const Hero = () => {
@@ -59,12 +60,12 @@ const Hero = () => {
                                     <div className="scroller">
                                         <div className="scroller__inner">
                                             <Marquee>
-                                                <img src={partner1} alt="" />
-                                                <img src={partner2} alt="" />
-                                                <img src={partner3} alt="" />
-                                                <img src={partner4} alt="" />
-                                                <img src={partner5} alt="" />
-                                                <img src={partner1} alt="" />
+                                                <img src={jarvis} className='jarvis' alt="" />
+                                                <img src={jarvis} alt="" />
+                                                <img src={jarvis} alt="" />
+                                                <img src={jarvis} alt="" />
+                                                <img src={jarvis} alt="" />
+                                                {/* <img src={partner1} alt="" /> */}
                                             </Marquee>
                                         </div>
                                     </div>
