@@ -3,6 +3,7 @@ import work_2 from "../../assets/images/projects/work2.jpg"
 import work_3 from "../../assets/images/projects/work3.jpg"
 import work_4 from "../../assets/images/projects/work4.jpg"
 import work_5 from "../../assets/images/projects/work5.jpg"
+// import work_6 from '../../assets/images/projects/gocart.png'
 
 export const projectsData = [
     {

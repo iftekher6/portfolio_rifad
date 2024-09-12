@@ -7,6 +7,7 @@ import SingleProject from "../pages/single-project";
 import Projects from "../pages/projects";
 import Blog from "../pages/blog";
 import SingleBlog from "../pages/single-blog";
+import Admin from "../pages/admin";
 
 
 export const router = createBrowserRouter([
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
                 path: "/projects",
                 element: <Projects />
             },
+            {
+                path: "/admin",
+                element : <Admin/>
+            }
         ]
     }
 ])

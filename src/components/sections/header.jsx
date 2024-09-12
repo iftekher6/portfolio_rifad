@@ -22,6 +22,7 @@ const Header = () => {
 
   const stickyHeader = () => {
       const scrollTop = window.scrollY
+      
       if (scrollTop > 85) {
           setisSticky(true)
       }
