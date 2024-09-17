@@ -108,7 +108,7 @@ body {
         border-radius: 10px;
         padding: 10px 25px;
         background: transparent;
-        max-width: 250px;
+       
     }
 .admin-input:active {
     box-shadow: 2px 2px 15px #8707ff inset;
