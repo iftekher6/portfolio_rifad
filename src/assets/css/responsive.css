@@ -405,7 +405,7 @@ Version      : 1.0
         border-radius: 10px;
         padding: 10px 25px;
         background: transparent;
-        width: 287px;
+        width: 300px;
         margin : 0 auto;
         /* overflow-x: hidden; */
       }
@@ -426,7 +426,7 @@ Version      : 1.0
     }
 
     .file {
-        width:299px;
+        width:300px;
         margin-left: 10px;
     }
     .file-labels {
@@ -442,9 +442,9 @@ Version      : 1.0
     .theme-btn {
         margin-left: 80px;
     }
-    .keyword-label {
+    /* .keyword-label {
         margin-left: 105px;
-    }
+    } */
     .tag-input {
         display: flex;
         flex-wrap: wrap;
@@ -453,7 +453,7 @@ Version      : 1.0
         /* background-color: #121214; */
         padding: 8px;
         border-radius: 10px;
-        width: 288px;
+        width: 300px;
         margin-top: 0px;
         margin: 0 auto;
       }

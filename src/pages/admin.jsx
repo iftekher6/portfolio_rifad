@@ -155,22 +155,22 @@ clientDetails.map(name=> (
 </div>
 
 <div className='input-box'>
-<label htmlFor="title" className='label-class'>Title</label>
+<label htmlFor="title">Title</label>
 <textarea name='title' className='admin-input-textarea' value={formdata.title} onChange={handleOnChange} rows='1' ></textarea>
 </div>
 
 <div className='input-box'>
-<label htmlFor="description" className='label-class'>Description</label>
+<label htmlFor="description" >Description</label>
 <textarea name='description' value={formdata.description} onChange={handleOnChange} className='admin-input-textarea' rows='2' ></textarea>
 </div>
 
 <div className='input-box'>
-<label htmlFor="brief" className='label-class'>Brief</label>
+<label htmlFor="brief" >Brief</label>
 <textarea name='brief' value={formdata.brief} onChange={handleOnChange} className='admin-input-textarea' rows='2' cols='10'></textarea>
 </div>
 
 <div className='input-box'>
-<label htmlFor="copy" className='label-class'>Copy</label>
+<label htmlFor="copy" >Copy</label>
 <textarea name='copy' value={formdata.copy} onChange={handleOnChange} className='admin-input-textarea' rows='2' cols='10'></textarea>
 </div>
 
@@ -192,7 +192,7 @@ clientDetails.map(name=> (
 </div>
 
 <div className='input-box'>
-<label className='label-class' htmlFor="contentType">Content Type</label>
+<label  htmlFor="contentType">Content Type</label>
 <input type="text" id="contentType" name="contentType" value={formdata.contentType}
  onChange={handleOnChange}         className="admin-input-contentype " defaultValue="" placeholder="aegon" required="" data-error="Please enter your Name" />
 </div>
