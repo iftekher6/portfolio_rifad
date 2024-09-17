@@ -95,6 +95,7 @@ body {
 .btn {
     margin-top: 30px;
 }
+
 .input-box {
     display: flex;
     flex-direction: column;
@@ -107,18 +108,65 @@ body {
         border-radius: 10px;
         padding: 10px 25px;
         background: transparent;
-        max-width: 190px;
+        max-width: 250px;
     }
 .admin-input:active {
     box-shadow: 2px 2px 15px #8707ff inset;
   }
 
+  .admin-input-contentype{
+    color: white;
+    border: 2px solid #8707ff;
+    border-radius: 10px;
+    padding: 10px 25px;
+    background: transparent;
+    width: 485px;
+  }
+
+.admin-input-textarea{
+    color: white;
+    border: 2px solid #8707ff;
+    border-radius: 10px;
+    padding: 10px 25px;
+    background: transparent;
+    width: 490px;
+   
+}
+
+.admin-input-textarea:focus{
+    outline: none;
+    box-shadow: none;
+    border-color: #cfdbf1;
+
+}
+
+.option-choose {
+    background-color: black;
+    font-size: 20px;
+    /* padding: 20px; */
+    border-radius: 20px;
+}
+
+.option-choose:focus {
+    background-color: black;
+    font-size: 20px;
+    /* padding: 20px; */
+    border-radius: 20px;
+
+    outline: none;
+    box-shadow: none;
+    border-color: #cfdbf1;
+}
+
+
+
   .input-box-file {
     display: flex;
     flex-direction: column;
+    /* padding: px; */
 }
 
-  .admin-input-file{
+  /* .admin-input-file{
     color: white;
     border: 2px solid #8707ff;
     border-radius: 10px;
@@ -130,7 +178,28 @@ body {
     font-size: 18px;
 
     
+  } */
+
+  
+ .des-label {
+    margin-right: -2220px;
+    padding: 1px;
+ }
+
+
+
+  .file {
+    color: white;
+    border: 2px solid #8707ff;
+    border-radius: 10px;
+    padding-left :0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background: transparent;
+    width: 490px;
+    font-size: 18px;
   }
+
   .h2-admin {
     margin-bottom: 30px;
   }
@@ -149,7 +218,9 @@ body {
   margin-bottom: 4px;
   margin-left: 5px;
 }
-
+.label-class-des {
+    margin-left: 105px;
+}
 .tag-input {
     display: flex;
     flex-wrap: wrap;
@@ -158,13 +229,13 @@ body {
     /* background-color: #121214; */
     padding: 8px;
     border-radius: 10px;
-    width: 400px;
+    width: 488px;
     margin-top: 0px;
   }
   
   .tags {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap ;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -172,12 +243,13 @@ body {
   
   .tag {
     display: flex;
+    
     align-items: center;
     border: 2px solid #8707ff;
     border-radius: 10px;
     padding: 4px 8px;
     margin: 4px;
-    font-size: 14px;
+    /* font-size: 14px; */
   }
   
   .tag-title {
@@ -186,19 +258,22 @@ body {
   
   .tag-close-icon {
     cursor: pointer;
-    font-size: 16px;
+    font-size: 24px;
     margin-left: 4px;
   }
   
   .input-tag {
     border: none;
     outline: none;
-
+    
     flex-grow: 1;
-    /* color: #0068FF; */
+    /* width: 500px; */
     background-color: #121214;
     padding: 4px;
     /* font-size: 14px; */
+  }
+  .input-tag:focus{
+    border-bottom: none;
   }
   
 

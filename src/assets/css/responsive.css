@@ -394,7 +394,65 @@ Version      : 1.0
     .hero-content {
         padding: 0px 10px;
     }
+    
+    .admin-input-contentype{
+        color: white;
+        border: 2px solid #8707ff;
+        border-radius: 10px;
+        padding: 10px 25px;
+        background: transparent;
+        width: 287px;
+        margin : 0 auto;
+        /* overflow-x: hidden; */
+      }
 
+      .admin-input-textarea{
+        color: white;
+        border: 2px solid #8707ff;
+        border-radius: 10px;
+        padding: 10px 25px;
+        background: transparent;
+        width: 285px;
+        margin: 0 auto
+       
+    }
+    .label-class{
+        margin-left: 102px;
+        padding: 1px;
+    }
+
+    .file {
+        width:299px;
+        margin-left: 10px;
+    }
+    .file-labels {
+        margin-left: 10px;
+    }
+    /* /* .admin-input-file-last{
+        width: 290px;
+        margin: 0 auto;
+    } */
+  /* .file{
+    width: 290px;
+  } */
+    .theme-btn {
+        margin-left: 80px;
+    }
+    .keyword-label {
+        margin-left: 105px;
+    }
+    .tag-input {
+        display: flex;
+        flex-wrap: wrap;
+        border: 2px solid #8707ff;
+        background: transparent;
+        /* background-color: #121214; */
+        padding: 8px;
+        border-radius: 10px;
+        width: 288px;
+        margin-top: 0px;
+        margin: 0 auto;
+      }
     .hero-content h1 {
         line-height: 50px;
         font-size: 40px;

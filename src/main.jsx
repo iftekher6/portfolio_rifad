@@ -7,8 +7,10 @@ import './assets/css/spacing.css'
 import './assets/css/style.css'
 import './assets/css/responsive.css'
 
+export const server = 'http://localhost:8000'
+
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  // <StrictMode>
     <App />
-  </StrictMode>,
+  //  </StrictMode> 
 )

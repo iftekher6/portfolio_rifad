@@ -30,7 +30,9 @@ const ProjectArticle = () => {
     const openSlider = (index) => {
         setCurrentIndex(index);
         setIsOpen(true);
-    };
+    }; 
+
+    
 
     const closeSlider = () => {
         setIsOpen(false);
