@@ -9,7 +9,7 @@ const ImageSlider = ({ images, isOpen, onClose, currentIndex }) => {
     }, [currentIndex]);
 
     if (!isOpen) return null;
-
+    
     const nextSlide = () => {
         setCurrentSlide((prevIndex) =>
             prevIndex === images.length - 1 ? 0 : prevIndex + 1
@@ -28,7 +28,11 @@ const ImageSlider = ({ images, isOpen, onClose, currentIndex }) => {
                 <button className="close-button" onClick={onClose}> <RiCloseFill size={25} /> </button>
                 <div className="slider">
                     <button className="prev-button" onClick={prevSlide}> <RiArrowLeftSLine size={25}/> </button>
-                    <img src={images[currentSlide].src} alt="Slider" className="slider-image" />
+                    <img src={images[currentSlide].src } alt="Slider" className="slider-image" />
+                    {/* <video width="750" height="500" controls >
+      <source src={images[currentSlide].src} type="video/mp4" className='silder-image'/>
+</video> */}
+
                     <button className="next-button" onClick={nextSlide}><RiArrowRightSLine size={25}/></button>
                 </div>
             </div>

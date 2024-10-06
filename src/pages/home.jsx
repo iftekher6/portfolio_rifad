@@ -4,15 +4,17 @@ import Hero from '../components/sections/hero'
 import Portfolio from '../components/sections/portfolio'
 import CallToAction from '../components/sections/callToAction'
 import Partners from '../components/sections/partners'
+import HeroShowReel from '../components/sections/hero2'
 
 const Home = () => {
   return (
     <>
-        <Hero/>
+        {/* <Hero/> */}
+        <HeroShowReel/>
         <Portfolio/>
         {/* <Partners/> */}
-        <CallToAction/>
-        <ScrollRestoration/>
+        {/* <CallToAction/> */}
+        {/* <ScrollRestoration/> */}
     </>
   )
 }

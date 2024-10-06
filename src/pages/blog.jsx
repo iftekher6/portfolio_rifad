@@ -10,6 +10,7 @@ const Blog = () => {
             <PageHeading
                 heading={"Blog"}
                 description={"I write about design, productivity, tech and my creative process. Subscribe to my newsletter to stay in touch. I sync once a month with no spam and ads."}
+                style={"single-page-hero-area"}
             />
             <BlogList />
             <CallToAction />

@@ -5,11 +5,13 @@ import Summary from '../components/sections/about/summary'
 import Resume from '../components/sections/resume'
 import Services from '../components/sections/services'
 import CallToAction from '../components/sections/callToAction'
+import Typewriter from '../components/ui/typewriter'
 
 const About = () => {
 
   return (
     <>
+      <Typewriter text='My Basters' delay={100}/>
       <AboutCount />
       <Summary />
       <Resume />

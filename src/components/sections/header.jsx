@@ -8,7 +8,12 @@ import { menuList } from '../../utlits/fackData/menuList';
 
 const Header = () => {
   const pathName = useLocation().pathname
+  console.log(pathName === '/about')
+  const [displayHeader, setDisplayHeader] =  useState(false)
+  const isSingleVideo = pathName === '/single-project' 
+  console.log(isSingleVideo)
   const [isSticky, setisSticky] = useState(false)
+ 
   
   useEffect(() => {
       const navbar_collapse = document.querySelector(".navbar-collapse")
@@ -22,6 +27,7 @@ const Header = () => {
 
   const stickyHeader = () => {
       const scrollTop = window.scrollY
+      console.log(scrollTop)
       
       if (scrollTop > 85) {
           setisSticky(true)
@@ -31,8 +37,10 @@ const Header = () => {
       }
   }
   return (
-    <header className={`main-header ${isSticky ? "fixed-header" : ""}`}>
-      <div className="header-upper">
+   
+    <header  className={`main-header ${isSticky ? "fixed-header" : ''}`}>
+      
+       <div className="header-upper">
         <div className="container">
           <div className="header-inner d-flex align-items-center">
             {/* <!-- START LOGO DESIGN AREA --> */}

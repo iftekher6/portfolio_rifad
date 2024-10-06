@@ -9,7 +9,7 @@ const Footer = () => {
                         <div className="col-lg-12 text-center">
                             <div className="copyright-text">
                                 <p>
-                                    &copy;Copyright <a href="index.html">Wize</a> All
+                                    &copy;Copyright Aegon All
                                     Rights Reserved.
                                 </p>
                             </div>

@@ -6,9 +6,10 @@ const TagInput = ({label,tags, setTags, formdata, name}) => {
   
  const addTag = (event) => {
    
-    if (event.key === 'Enter' && event.target.value !== '') {
+    if (event.key === 'Enter'  && event.target.value !== '') {
       event.preventDefault() 
-      console.log(event.target.value)
+
+      console.log(event)
       if (tags.length < 5) { // Limit to 5 tags
 
         // let query = event.target.value // why using query instead of hardcoded e.target.value, this function doesn't work. why?  

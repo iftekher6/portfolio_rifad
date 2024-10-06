@@ -3,6 +3,7 @@ import workScribble from "../../assets/images/custom/work-scribble.svg"
 import { projectsData } from '../../utlits/fackData/projectData'
 import ImageSlider from '../ui/imageSlider';
 import { Link } from 'react-router-dom';
+import cat from '../../assets/images/custom/cat.png'
 
 const Portfolio = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -24,13 +25,13 @@ const Portfolio = () => {
                     <img src={workScribble} alt="custom" />
                 </div>
                 <div className="container-fluid">
-                    <div className="row g-4 portfolio-grid">
+                    <div className="row g-2 ">
                         {projectsData.map(({ category, id, size, src, title }, index) => {
                             return (
-                                <div key={id} className={`${size === "large" ? "col-md-6 col-xl-6" : "col-md-6 col-xl-4"} portfolio-item category-${id}`}>
+                                <div key={id} className={`${size && "col-md-4 col-xl-4"} `}>
                                     <div className="work-popup">
                                         <div onClick={() => openSlider(index)} className="portfolio-box">
-                                            <img src={src} alt="" data-rjs="2" />
+                                            <img src={cat} alt="" data-rjs="2" />
                                             <span className="portfolio-category">{category}</span>
                                             <h1 className="portfolio-caption"><Link to={"/single-project"} >{title}</Link></h1>
                                         </div>

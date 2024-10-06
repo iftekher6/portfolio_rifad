@@ -7,16 +7,19 @@ function Admin() {
 
   const [client, setClient] = useState('')
   const [clientIcon, setClientIcon] = useState('')
+
+  const [uploadPercentage, setUploadPercentage] = useState(0)
  
   
 
   const [company, setCompany] = useState(['artcell', 'warfaze'])
   const [isClientExists, setIsClientExists] = useState(true)
+  const [error, setError] = useState({})
 
     
   const [clientDetails, setClientDetails] = useState([])
   const [loading, setLoading] = useState(false)
-  console.log(loading ? 'data' : 'noData')
+
 
 
   const [formdata, setFormdata] = useState({
@@ -29,14 +32,14 @@ function Admin() {
        brief : '',
        tools : [],
        keywords : [],
-       thumbnail : null,
-       video : null, 
+       thumbnail : [],
+       video : [], 
        contentType : ''
 
 
   })
  console.log(formdata.keywords)
- console.log(formdata.tools)
+ console.log(formdata.video)
   console.log({formdata})
 
   
@@ -47,13 +50,25 @@ function Admin() {
       ...formdata,
       [event.target.name] : event.target.value
     })
+    if (error.title && event.target.value.length > 0) {
+      setError((prev) => ({ ...prev, title: null }));
+    }
   }
 
   const handleFiles = (event)=>{
+    console.log(event.target.files)
+    event.preventDefault()
+    const selectedFiles = Array.from(event.target.files)
+    setFormdata({
+      ...formdata,
+      [event.target.name] : [...formdata[event.target.name], ...selectedFiles]
+    })
+  }
+  const handleIcon = (event)=>{
     event.preventDefault()
     setFormdata({
       ...formdata,
-      [event.target.name] : event.target.files[0]
+      icon : event.target.files[0]
     })
   }
 
@@ -69,9 +84,14 @@ function Admin() {
   formData.append('tools', formdata.tools)
   formData.append('keywords', formdata.keywords)
   formData.append('date',formdata.date)
-  formData.append('video', formdata.video)
   formData.append('thumbnail', formdata.thumbnail)
   formData.append('contentType', formdata.contentType)
+  formdata.video.forEach(vid=>{
+    formData.append('video', vid)
+  }) 
+  formdata.thumbnail.forEach(thumb=>{
+    formData.append('thumbnail', thumb)
+  })
 
   const handleOnClick = ()=>{
     setIsClientExists(!isClientExists)
@@ -96,6 +116,16 @@ function Admin() {
 
   const handleSubmit =async(e)=>{
     e.preventDefault()
+
+    let validationError = {}
+    if(formdata.title === '' ){
+      validationError.title = 'Title is required!'
+    }
+    console.log(Object.keys(validationError))
+    if(Object.keys(validationError).length > 0){
+      setError(validationError)
+      return;
+    }
      try {
       setLoading(true)
       const response = await axios.post(`${server}/api/v1/work/upload`, formData ,
@@ -103,20 +133,37 @@ function Admin() {
        headers: {
         'Content-Type': 'multipart/form-data',
 
-      }})
+      },
+      // onUploadProgress: (progressEvent) => {
+      //   const { loaded, total } = progressEvent;
+      //   const percentage = Math.floor((loaded * 100) / total);
+      //   setUploadPercentage(percentage);
+      // },
+    });
+
+    
+
+  
       
       console.log(response.data)
       setLoading(false)
       console.log('data sent')
+      // setTimeout(() => setUploadPercentage(0), 1000);
+
      } catch (error) {
       setLoading(false)
       console.log(error)
      }
     
-    
+     setFormdata({
+      ...formdata,
+      title : ''
+    })
+    setError({})
     
     
   }
+ 
   return (
     <div className='admin-area'>
         <div className='container'>
@@ -156,7 +203,8 @@ clientDetails.map(name=> (
 
 <div className='input-box'>
 <label htmlFor="title">Title</label>
-<textarea name='title' className='admin-input-textarea' value={formdata.title} onChange={handleOnChange} rows='1' ></textarea>
+<textarea name='title' className={`${error.title ? "admin-input-textareaError" : "admin-input-textarea"}`} value={formdata.title}onChange={handleOnChange} rows='1' ></textarea>
+{error.title && <p style={{color: 'red'}}>{error.title}</p>}
 </div>
 
 <div className='input-box'>
@@ -202,19 +250,19 @@ clientDetails.map(name=> (
 
 <div className='input-box-file'>
 <label htmlFor="thumbnail" className='file-labels'>Thumbnail Upload</label>
-<input type="file" id="thumbnail" name="thumbnail" onChange={handleFiles} className="file
+<input type="file" id="thumbnail" name="thumbnail" multiple onChange={handleFiles} className="file
 "/>
 </div>
 <div className='input-box-file'>
 <label htmlFor="video" className='file-labels'>Video Upload</label>
-<input type="file" id="video" name="video"  onChange={handleFiles} className="file"/>
+<input type="file" id="video" name="video"  multiple onChange={handleFiles} className="file"/>
 </div>
 
 {
 !isClientExists &&
 <div className='input-box-file' >
 <label htmlFor="icon" className='file-labels' >Client Icon</label>
-<input type="file" id="icon" name="icon" onChange={handleFiles}  className="file"/>
+<input type="file" id="icon" name="icon" onChange={handleIcon}  className="file"/>
 </div>
 }
 
@@ -223,8 +271,18 @@ clientDetails.map(name=> (
 
 
 
+{/* <div className="progress-container">
+            <div
+              className="progress-bar"
+              style={{ width: `${uploadPercentage}%` }}
+            ></div>
+          </div>
+
+          <p>{uploadPercentage}%</p> */}
+          {/* {uploadPercentage === 100 && alert('Uploaded')} */}
 
 <div className='btn'>
+  
 <button className='theme-btn'>{loading ? 'loading...' : 'Submit'}</button>
 </div>
 

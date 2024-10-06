@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import work from "../../assets/images/projects/work2.jpg"
+import arong from "../../assets/images/projects/arong.mp4"
 import project1 from "../../assets/images/projects/single-project1.jpg"
 import project2 from "../../assets/images/projects/single-project2.jpg"
 import project3 from "../../assets/images/projects/single-project3.jpg"
 import project4 from "../../assets/images/projects/single-project4.jpg"
 import ImageSlider from '../ui/imageSlider'
+import PageHeading from './pageHeading'
 const projectsData = [
     {
         id: 1,
@@ -41,12 +43,21 @@ const ProjectArticle = () => {
         <>
             <div className="single-project-page-design">
                 <div className="single-project-image">
-                    <img src={work} alt="image" />
+                    {/* <img src={work} alt="image" /> */}
+                    <video controls className='vid'>
+                        <source src={arong} type='video/mp4'/>
+                    </video>
                 </div>
                 <div className="container pt-60 pb-40">
+                <PageHeading
+                heading={"A Branch with Flowers"}
+                description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit utsadi sfejdis aliquam, purus sit amet luctus venenatis, lectus magna sansit trandis fringilla urna, porttitor rhoncus dolor purus non enim dollors praesent tabasi elementum facilisis leo. "}
+                style={"single-page-hero-areaforsingleprojectpage"}
+            />
                     <div className="row">
                         <div className="col-lg-4">
                             {/* <!-- START SINGLE LEFT DESIGN AREA --> */}
+          
                             <div className="single-project-page-left wow fadeInUp delay-0-2s">
                                 <div className="single-info">
                                     <p>Year</p>
@@ -80,7 +91,7 @@ const ProjectArticle = () => {
                         {/* <!-- / END SINGLE RIGHT DESIGN AREA --> */}
                     </div>
                     {/* <!-- START SINGLE PAGE GALLERY DESIGN AREA --> */}
-                    <div className="row pt-60">
+                    {/* <div className="row pt-60">
                         {
                             projectsData.map(({ id, src }, index) => {
                                 return (
@@ -95,7 +106,7 @@ const ProjectArticle = () => {
                             })
                         }
 
-                    </div>
+                    </div> */}
                     {/* <!--  / END SINGLE PAGE GALLERY DESIGN AREA --> */}
                 </div>
             </div>

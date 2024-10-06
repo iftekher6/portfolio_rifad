@@ -9,6 +9,7 @@ const BlogList = () => {
                 <div className="row">
                     <div className="blog-list">
                         <div className="col-lg-12">
+                            <button>search</button>
                             {
                                 blogData.map(({ date, id, src, tag, title }) => <Card key={id} date={date} src={src} tag={tag} title={title} />)
                             }

@@ -12,6 +12,13 @@ import jarvis from "../../assets/images/client-logos/download.png"
 import SlideUp from '../../utlits/animations/slideUp';
 
 const Hero = () => {
+    const companies = [
+        { id: 'google', name: 'Google', logo: jarvis },
+        { id: 'facebook', name: 'Facebook', logo: '../../assets/images/client-logos/download.png' },
+        { id: 'amazon', name: 'Amazon', logo: '../../assets/images/client-logos/download.png' },
+        // Add more companies as needed
+      ];
+    
     return (
         <section id="about" className="about-area">
             <div className="container">
@@ -60,11 +67,16 @@ const Hero = () => {
                                     <div className="scroller">
                                         <div className="scroller__inner">
                                             <Marquee>
-                                                <img src={jarvis} className='jarvis' alt="" />
+                                            {
+                                                companies.map(company=> (
+                                                    <Link to={`/company-details/${company.id}`}> <img src={company.logo} className='jarvis' alt="" /> </Link>
+                                                ))
+                                            }
+                                               {/* <Link to={'/single-project'}> <img src={jarvis} className='jarvis' alt="" /> </Link>
                                                 <img src={jarvis} alt="" />
                                                 <img src={jarvis} alt="" />
                                                 <img src={jarvis} alt="" />
-                                                <img src={jarvis} alt="" />
+                                                <img src={jarvis} alt="" /> */}
                                                 {/* <img src={partner1} alt="" /> */}
                                             </Marquee>
                                         </div>

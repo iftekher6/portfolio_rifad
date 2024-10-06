@@ -1,8 +1,9 @@
 import React from 'react'
 
-const PageHeading = ({heading, description}) => {
+
+const PageHeading = ({heading, description, style}) => {
     return (
-        <section className="single-page-hero-area">
+        <section className={style}>
             <div className="container">
                 <div className="row align-items-center">
                     <div className="col-lg-12">
@@ -10,6 +11,7 @@ const PageHeading = ({heading, description}) => {
                         <p>{description}</p>
                     </div>
                 </div>
+             
             </div>
         </section>
     )

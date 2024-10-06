@@ -206,6 +206,81 @@ Version      : 1.0
 /* Mobile Layout: 320px. */
 
 @media only screen and (max-width: 767px) {
+    .hero-video{
+    
+        width: 100%;
+        height: 80vh;;
+        object-fit: cover;
+        filter: brightness(0.4)  ;
+    
+    }
+    .content-hero{
+        position: absolute;
+        /* background-color: grey; */
+        display: flex;
+        flex-direction: column;
+        width: 90vw;
+        height: 80vh;
+        justify-content: flex-start;
+        /* margin: 0 auto; */
+        align-items: center;
+        top: 150px;
+        left: 20px;
+        /* padding: 10px; */
+    }
+    
+  
+   .h1-hero{
+    font-size: 40px;
+    text-align: center;
+    /* margin-left: -50px; */
+   }
+
+    .buttons-hero{
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+    
+    }
+
+    .container-fluid{
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .about-content-part-bottom {
+        /* margin-top: -50px; */
+        padding: 40px;
+        width: 380px;
+        /* border: 1px  transparent; 
+        border-radius: 20px;
+        box-shadow: rgba(255, 255, 255, 0.025) 0px 0.362176px 0.651917px -1px inset, rgba(255, 255, 255, 0.036) 0px 3px 5.4px -2px inset; */
+        /* background-color: #121214; */
+    }
+   .theme-btns {
+    background: var(--primary-color);
+    /* width: 20px; */
+    color: #000;
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid var(--button-border);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    margin: 0 5px 10px 0;
+    overflow: visible;
+    border-radius: 50px;
+    padding: 13px 15px;
+    
+    text-align: center;
+    text-transform: none;
+    -webkit-transition: .3s;
+    transition: .3s;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 0px 0px;
+}
+    
     .comment-form-area {
         margin-left: 0px;
         margin-bottom: 30px;
@@ -316,6 +391,8 @@ Version      : 1.0
     body {
         overflow-x: hidden;
         /* margin: 0; */
+        margin: 0;
+        padding: 0;
 
     }
 
