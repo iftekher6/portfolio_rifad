@@ -11,10 +11,11 @@ const Home = () => {
     <>
         {/* <Hero/> */}
         <HeroShowReel/>
+        <Partners/>
         <Portfolio/>
-        {/* <Partners/> */}
-        {/* <CallToAction/> */}
-        {/* <ScrollRestoration/> */}
+      
+        <CallToAction/>
+        <ScrollRestoration/>
     </>
   )
 }
