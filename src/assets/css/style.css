@@ -494,13 +494,11 @@ body {
     border-radius: 20px;
     box-shadow: rgba(255, 255, 255, 0.025) 0px 0.362176px 0.651917px -1px inset, rgba(255, 255, 255, 0.036) 0px 3px 5.4px -2px inset;
     background-color: #121214;
-    width: 90%;
+    width: calc(90vw - 10px);
     margin: 0 auto;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 }
-.about-content-part * {
-    box-sizing: border-box;
-}
+
 
 .about-content-part-bottom {
     margin-top: 30px;
