@@ -19,7 +19,7 @@ const Partners = () => {
       ];
     return (
         <SlideUp>
-        <div className="about-content-part-bottom">
+        <div className="about-content-part-bottom ">
             <h2>Company I Worked With</h2>
             <div className="company-list">
                 <div className="scroller">

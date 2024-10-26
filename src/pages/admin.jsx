@@ -19,8 +19,14 @@ function Admin() {
     
   const [clientDetails, setClientDetails] = useState([])
   const [loading, setLoading] = useState(false)
+  const [videos, setVideos] = useState([]);
 
+  const handleFileChange = (e) => {
+    console.log(e.target.files)
+    setVideos(e.target.files); // Save the selected files to state
+  };
 
+// console.log(videos)
 
   const [formdata, setFormdata] = useState({
        client: '',
@@ -43,14 +49,17 @@ function Admin() {
   console.log({formdata})
 
   
-  
+ 
+ 
+
+
   const handleOnChange = (event)=> {
     event.preventDefault()
     setFormdata({
       ...formdata,
       [event.target.name] : event.target.value
     })
-    if (error.title && event.target.value.length > 0) {
+    if (error.title  && event.target.value.length > 0) {
       setError((prev) => ({ ...prev, title: null }));
     }
   }
@@ -84,7 +93,7 @@ function Admin() {
   formData.append('tools', formdata.tools)
   formData.append('keywords', formdata.keywords)
   formData.append('date',formdata.date)
-  formData.append('thumbnail', formdata.thumbnail)
+  // formData.append('thumbnail', formdata.thumbnail)
   formData.append('contentType', formdata.contentType)
   formdata.video.forEach(vid=>{
     formData.append('video', vid)
@@ -119,7 +128,13 @@ function Admin() {
 
     let validationError = {}
     if(formdata.title === '' ){
-      validationError.title = 'Title is required!'
+      validationError.title = 'title is required!'
+    }
+    if(formdata.description === '' ){
+      validationError.description = 'description is required!'
+    }
+    if(formdata.client === '' ){
+      validationError.client = 'client is required!'
     }
     console.log(Object.keys(validationError))
     if(Object.keys(validationError).length > 0){
@@ -134,21 +149,20 @@ function Admin() {
         'Content-Type': 'multipart/form-data',
 
       },
-      // onUploadProgress: (progressEvent) => {
-      //   const { loaded, total } = progressEvent;
-      //   const percentage = Math.floor((loaded * 100) / total);
-      //   setUploadPercentage(percentage);
-      // },
-    });
-
-    
-
-  
       
+      onUploadProgress: (progressEvent) => {
+        const { loaded, total } = progressEvent;
+        console.log(loaded)
+        const percentage = Math.floor((loaded * 100) / total);
+        setUploadPercentage( percentage );
+      },
+      
+    });
+    
       console.log(response.data)
       setLoading(false)
       console.log('data sent')
-      // setTimeout(() => setUploadPercentage(0), 1000);
+      setTimeout(() => setUploadPercentage(0), 1000);
 
      } catch (error) {
       setLoading(false)
@@ -163,7 +177,15 @@ function Admin() {
     
     
   }
- 
+
+    
+
+    
+
+
+  
+// uploadFile(formdata.video)
+
   return (
     <div className='admin-area'>
         <div className='container'>
@@ -186,11 +208,13 @@ clientDetails.map(name=> (
 </option>
 ))
 }
-</select> 
+</select>
+{error.client && <p style={{color: 'red'}}>{error.client}</p>}
 </div>
 :  <div className='input-box'>
 <label htmlFor="client" onClick={()=> handleOnClick()}>Client</label>
-<input type="text" id="client" name="client" value={formdata.client} onChange={handleOnChange} className="admin-input" defaultValue="" placeholder="aegon" required="" data-error="Please enter your Name" />
+<input type="text" id="client" name="client"  value={formdata.client} onChange={handleOnChange} className="admin-input" placeholder="aegon" required data-error="Please enter your Name" />
+{error.client && <p style={{color: 'red'}}>{error.client}</p>}
 </div>
 }
 
@@ -203,13 +227,14 @@ clientDetails.map(name=> (
 
 <div className='input-box'>
 <label htmlFor="title">Title</label>
-<textarea name='title' className={`${error.title ? "admin-input-textareaError" : "admin-input-textarea"}`} value={formdata.title}onChange={handleOnChange} rows='1' ></textarea>
+<textarea name='title' className={`${error.title ? "admin-input-textareaError" : "admin-input-textarea"}`} value={formdata.title} onChange={handleOnChange} rows='1'  ></textarea>
 {error.title && <p style={{color: 'red'}}>{error.title}</p>}
 </div>
 
 <div className='input-box'>
 <label htmlFor="description" >Description</label>
 <textarea name='description' value={formdata.description} onChange={handleOnChange} className='admin-input-textarea' rows='2' ></textarea>
+{error.description && <p style={{color: 'red'}}>{error.description}</p>}
 </div>
 
 <div className='input-box'>
@@ -242,7 +267,7 @@ clientDetails.map(name=> (
 <div className='input-box'>
 <label  htmlFor="contentType">Content Type</label>
 <input type="text" id="contentType" name="contentType" value={formdata.contentType}
- onChange={handleOnChange}         className="admin-input-contentype " defaultValue="" placeholder="aegon" required="" data-error="Please enter your Name" />
+ onChange={handleOnChange} className="admin-input-contentype" required placeholder="Content Type.."  />
 </div>
 
 
@@ -250,7 +275,7 @@ clientDetails.map(name=> (
 
 <div className='input-box-file'>
 <label htmlFor="thumbnail" className='file-labels'>Thumbnail Upload</label>
-<input type="file" id="thumbnail" name="thumbnail" multiple onChange={handleFiles} className="file
+<input type="file" id="thumbnail" required name="thumbnail" multiple onChange={handleFiles} className="file
 "/>
 </div>
 <div className='input-box-file'>
@@ -271,15 +296,15 @@ clientDetails.map(name=> (
 
 
 
-{/* <div className="progress-container">
+<div className="progress-container">
             <div
               className="progress-bar"
               style={{ width: `${uploadPercentage}%` }}
-            ></div>
+              ></div>
           </div>
 
-          <p>{uploadPercentage}%</p> */}
-          {/* {uploadPercentage === 100 && alert('Uploaded')} */}
+          <p>{uploadPercentage}%</p> 
+        {uploadPercentage === 100 && alert('Uploaded')} 
 
 <div className='btn'>
   
@@ -304,3 +329,4 @@ clientDetails.map(name=> (
 }
 
 export default Admin
+

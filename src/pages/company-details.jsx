@@ -7,7 +7,7 @@ import jarvis from "../assets/images/client-logos/download.png"
 const CompanyDetails = () => {
     const {company} = useParams()
     console.log(company)
-
+ 
     const companies = {
         google: { name: 'Google', description: 'A search engine giant.' },
         facebook: { name: 'Facebook', description: 'A social media platform.' },

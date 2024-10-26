@@ -57,9 +57,9 @@ Version      : 1.0
         width: 40px;
     }
 
-    .section-title p {
+    /* .section-title p {
         padding-right: 50px;
-    }
+    } */
 
     .about-area {
         padding-top: 80px;
@@ -206,6 +206,7 @@ Version      : 1.0
 /* Mobile Layout: 320px. */
 
 @media only screen and (max-width: 767px) {
+    
     .hero-video{
     
         width: 100%;
@@ -245,12 +246,16 @@ Version      : 1.0
     
     }
 
-    .container-fluid{
+    .container-fluid {
         margin-top: 20px;
         margin-left: auto;
         margin-right: auto;
     }
- 
+    .theme-btn.call-to-action-button {
+        background: var(--black-color);
+        color: var(--main-color);
+        margin: 0 auto;
+    }
     .portfolio-box {
         position: relative;
         -webkit-transform: translate3d(0, 0, 0);
@@ -261,7 +266,21 @@ Version      : 1.0
         width: 100%; 
         margin-bottom: 10px;
     }
-
+    .project-item {
+        height: 400px;
+        width: 300px;
+        margin: 0 auto;
+     margin-bottom: 30px;
+        /* background-color: white; */
+    }
+    .project-content {
+        padding: 10px;
+        margin-left: -15px;
+        margin-top: -20px;
+        /* overflow-y: scroll; */
+        /* background-color: wheat; */
+    }
+    
     .about-content-part-bottom {
         padding: 40px;
         border: 1px solid rgba(0, 0, 0, 0.05);
@@ -269,7 +288,9 @@ Version      : 1.0
         box-shadow: rgba(255, 255, 255, 0.025) 0px 0.362176px 0.651917px -1px inset, rgba(255, 255, 255, 0.036) 0px 3px 5.4px -2px inset;
         background-color: #121214;
         /* width: 20px; */
-        width: 100vw;        
+        /* margin: -50px auto; */
+        width: 520px;
+             
 
         /* margin-bottom: 110px; */
     }
@@ -579,6 +600,28 @@ Version      : 1.0
     .hero-counter-area .counter-title {
         font-size: 14px;
     }
+    .section-title {
+        margin-bottom: 30px;
+    }
+    
+    .section-title .sub-title {
+        font-weight: 500;
+        display: block;
+        color: rgba(255, 255, 255, 0.65);
+    }
+    
+    .section-title h2 {
+        margin-bottom: 15px;
+        font-size: 30px;
+    }
+    
+    .section-title p {
+        font-size:16px;
+        padding: 0px 0px;
+        /* background-color: white; */
+        text-align: center;
+    }
+    
 
 }
 
@@ -776,9 +819,9 @@ Version      : 1.0
     }
 
     
-    .section-title p {
-        padding-right: 10px;
-    }
+    /* .section-title p {
+        /* padding-right: 10px; */
+    /* }  */
 
   
 
@@ -1258,9 +1301,9 @@ Version      : 1.0
     }
 
     
-    .section-title p {
+    /* .section-title p {
         padding-right: 10px;
-    }
+    } */
 
   
 
@@ -1571,7 +1614,18 @@ Version      : 1.0
     .about-content-part-bottom{
         margin-bottom: -70px;
     } 
-
+    
+    .about-content-part-bottom {
+        padding: 40px;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        border-radius: 20px;
+        box-shadow: rgba(255, 255, 255, 0.025) 0px 0.362176px 0.651917px -1px inset, rgba(255, 255, 255, 0.036) 0px 3px 5.4px -2px inset;
+        background-color: #121214;
+        width: 91vw;
+        margin: 0 auto;
+        /* box-sizing: border-box; */
+    }
+    
     .section-title h2 {
         font-size: 50px;
         line-height: 60px;
@@ -1626,9 +1680,9 @@ Version      : 1.0
     }
 
     
-    .section-title p {
+    /* .section-title p {
         padding-right: 10px;
-    }
+    } */
 
   
 
@@ -1982,9 +2036,9 @@ Version      : 1.0
     }
 
     
-    .section-title p {
+    /* .section-title p {
         padding-right: 10px;
-    }
+    } */
 
   
 
@@ -2198,7 +2252,7 @@ Version      : 1.0
    }
 
     .buttons-hero{
-        margin-top: 50px;
+        margin-top: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -2354,9 +2408,9 @@ Version      : 1.0
     }
 
     
-    .section-title p {
+    /* .section-title p {
         padding-right: 10px;
-    }
+    } */
 
   
 
@@ -2709,9 +2763,9 @@ Version      : 1.0
     }
 
     
-    .section-title p {
+    /* .section-title p {
         padding-right: 10px;
-    }
+    } */
 
   
 
@@ -3459,25 +3513,8 @@ Version      : 1.0
     }
 }
 
-@media only screen and (max-width: 375px) {
-    .project-item.style-two .project-content {
-        padding-left: 0;
-        padding-right: 0;
-    }
-}
 
-@media only screen and (max-width: 479px) {
-    .project-item.style-two .project-content h3 {
-        font-size: 25px;
-    }
-}
 
-@media only screen and (max-width: 375px) {
-    .project-item.style-three .project-content {
-        padding-left: 25px;
-        padding-right: 25px;
-    }
-}
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .project-details-info {

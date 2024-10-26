@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import work from "../../assets/images/projects/work2.jpg"
 import arong from "../../assets/images/projects/arong.mp4"
 import project1 from "../../assets/images/projects/single-project1.jpg"
@@ -7,50 +7,79 @@ import project3 from "../../assets/images/projects/single-project3.jpg"
 import project4 from "../../assets/images/projects/single-project4.jpg"
 import ImageSlider from '../ui/imageSlider'
 import PageHeading from './pageHeading'
-const projectsData = [
-    {
-        id: 1,
-        src: project1
-    },
-    {
-        id: 2,
-        src: project2
-    },
-    {
-        id: 3,
-        src: project3
-    },
-    {
-        id: 4,
-        src: project4
-    },
-]
-const ProjectArticle = () => {
+import { server } from '../../main'
+import { useParams } from 'react-router-dom'
+
+
+const ProjectArticle = ({params}) => {
+
+
+   
+    console.log(params)
     const [isOpen, setIsOpen] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [projectsData, setProjectsData] = useState([])
+    console.log(projectsData)
+    const [video, setVideo] = useState(null);
+    const [loading, setLoading] = useState(true);
 
+
+
+    const getProjects = async() =>{
+        
+        const response = await fetch(`${server}/api/v1/work/upload/${params}`)
+        const data = await response.json()
+        setProjectsData(data)
+        console.log(data)
+     
+    }
+        
+     useEffect(()=>{
+         getProjects()
+     }, [])
     const openSlider = (index) => {
         setCurrentIndex(index);
         setIsOpen(true);
     }; 
 
+    useEffect(() => {
+        console.log('projectsData:', projectsData);
+        if (projectsData?.video) {
+          setVideo(projectsData.video);
+          setLoading(false);
+        } else {
+          setLoading(true);
+        }
+      }, [projectsData]);
     
-
+      if (loading) {
+        return <p>Loading...</p>; // Shows a loading state
+      }
+    
+      if (!video || !Array.isArray(video) || video.length === 0) {
+        return <p>No video available</p>; // Handles the case where the video data is not available or empty
+      }
+    
+//    const video = projectsData[0].video[0]
+//    console.log(video)
     const closeSlider = () => {
         setIsOpen(false);
     };
+
+
+  
     return (
         <>
             <div className="single-project-page-design">
                 <div className="single-project-image">
                     {/* <img src={work} alt="image" /> */}
                     <video controls className='vid'>
-                        <source src={arong} type='video/mp4'/>
+                        <source src={projectsData?.video}  type='video/mp4'/>
                     </video>
                 </div>
                 <div className="container pt-60 pb-40">
                 <PageHeading
-                heading={"A Branch with Flowers"}
+                heading={projectsData?.title}
                 description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit utsadi sfejdis aliquam, purus sit amet luctus venenatis, lectus magna sansit trandis fringilla urna, porttitor rhoncus dolor purus non enim dollors praesent tabasi elementum facilisis leo. "}
                 style={"single-page-hero-areaforsingleprojectpage"}
             />
