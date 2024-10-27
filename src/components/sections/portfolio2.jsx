@@ -19,29 +19,34 @@ const Portfolio2 = ({ className }) => {
 
 
     const [projectsData, setProjectsData] = useState([])
+    const [page, setPage] = useState(2)
 
     const getProjects = async() =>{
-        const response = await fetch(`${server}/api/v1/work/upload`)
+        const response = await fetch(`${server}/api/v1/work/upload?page=${page}`)
         const data = await response.json()
-        setProjectsData(data.companies)
+        setProjectsData(prev=> [...prev, ...data.companies])
         console.log(data.companies)
      }
     
      useEffect(()=>{
          getProjects()
-     },[])
+     },[page])
      const handleCategoryClick = (item) => {
      setCategory(item)
         const randomAnimation = getRandomAnimation();
         setAnimationClass(randomAnimation);
     }
 
+
+    const handlePagination = ()=>{
+        setPage(prev=> prev + 1)
+    }
  
 
     return (
         <section id="portfolio" className={`projects-area ${className}`}>
             <div className="container">
-                <div className="container-inner">
+                <div className="container-innerPortfolio">
                     <div className="row">
                         <div className="col-xl-12 col-lg-12">
                             <SlideUp>
@@ -58,6 +63,7 @@ const Portfolio2 = ({ className }) => {
                         {projectsData.map((project,id) => <Card key={id} _id={project._id} id={id} category={project.contentType} src={project.thumbnail} title={project.title}  client={project.client.client} tools={project.tools}   animationClass={animationClass} date={project.date} />)}
 
                     </div>
+                    <button onClick={handlePagination} className='pagination-btn'>Show more</button>
                 </div>
             </div>
         </section>

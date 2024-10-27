@@ -7,6 +7,7 @@ import Partners from '../components/sections/partners'
 import HeroShowReel from '../components/sections/hero2'
 import Portfolio2 from '../components/sections/portfolio2'
 import About from './about'
+import Resume from '../components/sections/resume'
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
         <About/>
         <Partners/>
         <Portfolio2/>
+        <Resume />
       
         <CallToAction/>
         <ScrollRestoration/>

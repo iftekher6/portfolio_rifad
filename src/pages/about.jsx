@@ -14,7 +14,7 @@ const About = () => {
       {/* <Typewriter text='My Basters' delay={100}/> */}
       {/* <AboutCount /> */}
       <Summary />
-      <Resume />
+      {/* <Resume /> */}
       {/* <Services /> */}
       {/* <CallToAction /> */}
       {/* <ScrollRestoration /> */}
