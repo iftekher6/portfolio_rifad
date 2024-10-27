@@ -107,7 +107,7 @@ body {
   padding:.8px;
   border-color: black;
   border-radius: 25px;
-  min-width: 400px;
+  width: 360px;
   height: 53px;
   /* padding: 15px; */
   overflow: hidden;
@@ -629,6 +629,7 @@ top:5px;
 
 
 .about-area {
+    margin-top: -200px;
     padding-top: 115px;
     padding-bottom: 15px;
   background-image: -webkit-linear-gradient(135deg, #130f40 0%, #000000 74%);
@@ -699,11 +700,13 @@ top:5px;
 
 .about-image-part {
     text-align: center;
-    padding-top: 30px;
-    /* padding: 25px; */
-    padding-left: 25px;
+    /* padding-top: 30px; */
+    /* padding: 50px; */
+    /* padding-left: 25px;
     padding-right: 25px;
-    padding-bottom: 25px;
+    padding-bottom: 25px; */
+    /* height: 500px; */
+    /* background-color: red; */
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 20px;
     box-shadow: rgba(255, 255, 255, 0.025) 0px 0.362176px 0.651917px -1px inset, rgba(255, 255, 255, 0.036) 0px 3px 5.4px -2px inset;
@@ -1284,6 +1287,111 @@ html {
     transition: .3s
 }
 
+.menu-btns{
+    position: relative;
+    overflow: hidden;
+    background-color: var(--border-color);
+    border-radius: 50px;
+     height: 50px;
+     padding: 2px;
+    /* width: 110px; */
+    /* padding: 0 50px */
+    /* padding: 12px 18px; */
+}
+
+
+
+.menu-btns .theme-btns {
+    background-color: #151515;
+    z-index: 2;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: -5px;
+    /* padding: 5px; */
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid transparent;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 5px 5px 10px 0;
+    overflow: visible;
+    border-radius: 50px;
+    padding: 12px 18px;
+    text-align: center;
+    text-transform: none;
+    -webkit-transition: .3s;
+    transition: .3s;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 0px 0px;
+}
+
+
+.gradient-btn{
+    /* opacity: 1; */
+    z-index: 1;
+     /* background-color: red; */
+   position: absolute;
+   top:-178px;
+    left: 1px; 
+   min-height: 25rem;
+   width: 100%;
+    background:  conic-gradient(from 0 at 50% 50%, rgba(255, 255, 255, .5) 0deg, rgba(255, 255, 255, 0) 60deg, rgba(255, 255, 255, 0) 310deg, rgba(255, 255, 255, .5) 360deg);
+    animation: spin 2s linear infinite;
+  }
+
+  .menu-btnsHero{
+    position: relative;
+    overflow: hidden;
+    background-color: var(--border-color);
+    border-radius: 50px;
+     height: 50px;
+     padding: 2px;
+    /* width: 110px; */
+    /* padding: 0 50px */
+    /* padding: 12px 18px; */
+}
+
+.theme-btnsHero{
+    background-color: #151515;
+    z-index: 2;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: -5px;
+    /* padding: 5px; */
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid transparent;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 5px 5px 10px 0;
+    overflow: visible;
+    border-radius: 50px;
+    padding: 12px 18px;
+    text-align: center;
+    text-transform: none;
+    -webkit-transition: .3s;
+    transition: .3s;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 0px 0px;
+}
+.gradient-btnHero{
+    /* opacity: 1; */
+    z-index: 1;
+     /* background-color: red; */
+   position: absolute;
+   top:-178px;
+    left: 1px; 
+   min-height: 25rem;
+   width: 100%;
+    background:  conic-gradient(from 0 at 50% 50%, rgba(255, 255, 255, .5) 0deg, rgba(255, 255, 255, 0) 60deg, rgba(255, 255, 255, 0) 310deg, rgba(255, 255, 255, .5) 360deg);
+    animation: spin 2s linear infinite;
+  }
+
+  
 .theme-btn.call-to-action-button {
     background: var(--black-color);
     color: var(--main-color);

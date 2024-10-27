@@ -153,21 +153,21 @@ const HeroShowReel=()=>{
     return(
        <section className='hero-container'>
  
-          
-              <video  className='hero-video' autoPlay muted loop> 
+             <video  className='hero-video' autoPlay muted loop> 
                 <source src={showReel}/>
             </video> 
-    
-
-         <div  className='content-hero'>
+     
+          <div  className='content-hero'>
           <span className='hero-span'>Editor-Producer-Colorist </span>
           <h1 className='h1-hero'>Cinematic brand stories 
             <br />
             <span>optimized to engage</span>
           </h1>
           <div className='buttons-hero'>
-            <div>
-            <button className='theme-btns'>My Resume</button>
+            <div className='menu-btnsHero'>
+            <button className='theme-btnsHero'>My Resume</button>
+            <div class="gradient-btnHero">
+            </div>
             </div>
           {/*search bar  */}
          <div className='search-bar-container' ref={inputRef}>

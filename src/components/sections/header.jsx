@@ -76,7 +76,10 @@ const Header = () => {
               {/* <!-- / END NAV DESIGN AREA --> */}
             </div>
             <div className="menu-btns">
-                            <Link to="/contact" className="theme-btss">Hire Me <RiShakeHandsLine size={15} /> </Link>
+                            <Link to="/contact"><button className="theme-btns">Let's Chat!</button> </Link>
+                            <div class="gradient-btn">
+                            </div>
+    
                         </div>
           </div>
         </div>

@@ -14,10 +14,10 @@ const Summary = () => {
                         </div>
                         {/* <!-- / END ABOUT IMAGE DESIGN AREA -->
                         <!-- START ABOUT TEXT DESIGN AREA --> */}
-                        <div className="col-lg-7">
+                        <div className="col-lg-7 ">
                             <div className="about-content-part wow fadeInUp delay-0-5s">
                                 <h2>
-                                    A passionate <span>web designer</span> turning <span>ideas</span> into visually stunning, user-friendly websites.
+                                    A passionate<span>web designer</span> turning<span>ideas</span>into visually stunning, user-friend ly websites.
                                 </h2>
                                 <p>
                                     Hello! I’m Stefeny a self-taught & award-winning Digital Designer & Developer with over fifteen years of work experience. I started in my children’s room and got pro at renowned digital nexum AG agencies.
