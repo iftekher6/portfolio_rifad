@@ -1270,6 +1270,28 @@ html {
     transition: .3s
 }
 
+.theme-btnContact {
+    background: var(--primary-color);
+    /* width: 20px; */
+    color: #000;
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid var(--button-border);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    margin: 0 5px 10px 0;
+    overflow: visible;
+    border-radius: 50px;
+    padding: 17px 34px;
+    
+    text-align: center;
+    text-transform: none;
+    -webkit-transition: .3s;
+    transition: .3s;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 0px 0px;
+}
+
 .theme-btns {
     background-color: #151515;
     /* width: 20px; */

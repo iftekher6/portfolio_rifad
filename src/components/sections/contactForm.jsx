@@ -41,7 +41,7 @@ const ContactForm = () => {
                                         </div>
                                         <div className="col-md-12">
                                             <div className="form-group mb-0">
-                                                <button type="submit" className="theme-btn">
+                                                <button type="submit" className="theme-btnContact">
                                                     Send Me Message <i><RiMailLine size={16} /></i>
                                                 </button>
                                                 <div id="msgSubmit" className="hidden"></div>
