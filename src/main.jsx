@@ -7,7 +7,9 @@ import './assets/css/spacing.css'
 import './assets/css/style.css'
 import './assets/css/responsive.css'
 
-export const server = 'http://localhost:8000'
+export const server = import.meta.env.VITE_BACKEND_URL
+
+console.log("Running in:", process.env.NODE_ENV);
 
 createRoot(document.getElementById('root')).render(
   // <StrictMode>

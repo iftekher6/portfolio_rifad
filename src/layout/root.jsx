@@ -9,7 +9,7 @@ import CustomCursor from '../components/ui/customCursor'
 const RootLayout = () => {
     return (
         <>
-            <Preloader />
+            {/* <Preloader /> */}
             <CustomCursor />
             <Header />
             <Outlet />

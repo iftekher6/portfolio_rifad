@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import TagInput from '../components/ui/tags'
 import axios from 'axios'
 import { server } from '../main'
+import io from 'socket.io-client'
 
 function Admin() {
-
+  
+  const socket = io()
   const [client, setClient] = useState('')
   const [clientIcon, setClientIcon] = useState('')
 
@@ -16,10 +18,30 @@ function Admin() {
   const [isClientExists, setIsClientExists] = useState(true)
   const [error, setError] = useState({})
 
+  
+
     
   const [clientDetails, setClientDetails] = useState([])
   const [loading, setLoading] = useState(false)
   const [videos, setVideos] = useState([]);
+
+
+  useEffect(() => {
+    // Check if the socket connection is successful
+    socket.on('connect', () => {
+        console.log('Connected to server');
+    });
+
+    socket.on('serverProgress', (data) => {
+        console.log("Progress received:", data);
+        setUploadPercentage(data)
+    });
+
+    return () => {
+        socket.off('serverProgress');
+        socket.off('connect');
+    };
+}, []);
 
   const handleFileChange = (e) => {
     console.log(e.target.files)
@@ -48,12 +70,7 @@ function Admin() {
  console.log(formdata.video)
   console.log({formdata})
 
-  
- 
- 
-
-
-  const handleOnChange = (event)=> {
+ const handleOnChange = (event)=> {
     event.preventDefault()
     setFormdata({
       ...formdata,
@@ -153,12 +170,22 @@ function Admin() {
       onUploadProgress: (progressEvent) => {
         const { loaded, total } = progressEvent;
         console.log(loaded)
-        const percentage = Math.floor((loaded * 100) / total);
-        setUploadPercentage( percentage );
+        // const percentage = Math.floor((loaded * 100) / total);
+        // setUploadPercentage( percentage );
+        const percentage = (progressEvent.loaded / progressEvent.total) * 50; // Allocate 50% for upload
+        setUploadPercentage(percentage); // Update client-side progress bar
       },
       
     });
     
+          // On successful upload, start listening for server-side progress
+          if (response.status === 200) {
+            socket.on('serverProgress', (serverProgress) => {
+               // Combine client and server progress (e.g., 50% from upload + serverProgress)
+              setUploadPercentage(50 + serverProgress / 2);
+            });
+         }
+   
       console.log(response.data)
       setLoading(false)
       console.log('data sent')
@@ -189,11 +216,12 @@ function Admin() {
   return (
     <div className='admin-area'>
         <div className='container'>
-            <div className='container-inner'>
 
+            <div className='container-inner'>
             <h2 className='h2-admin'>Admin Panel</h2>
            <form onSubmit={handleSubmit}>
-           <div className='input-group'>
+            
+    <div className='input-group'>
 
 {isClientExists ? 
 <div className='input-box'>
@@ -223,28 +251,28 @@ clientDetails.map(name=> (
 <label htmlFor="date">Date</label>
 <input type="date"  id="date" name="date" value={formdata.date}  onChange={handleOnChange} className="admin-input"  />
 </div>
-</div>
+    </div>
 
 <div className='input-box'>
 <label htmlFor="title">Title</label>
-<textarea name='title' className={`${error.title ? "admin-input-textareaError" : "admin-input-textarea"}`} value={formdata.title} onChange={handleOnChange} rows='1'  ></textarea>
+<textarea  id="title" name='title' className={`${error.title ? "admin-input-textareaError" : "admin-input-textarea"}`} value={formdata.title} onChange={handleOnChange} rows='1'  ></textarea>
 {error.title && <p style={{color: 'red'}}>{error.title}</p>}
 </div>
 
 <div className='input-box'>
 <label htmlFor="description" >Description</label>
-<textarea name='description' value={formdata.description} onChange={handleOnChange} className='admin-input-textarea' rows='2' ></textarea>
+<textarea id="description" name='description' value={formdata.description} onChange={handleOnChange} className='admin-input-textarea' rows='2' ></textarea>
 {error.description && <p style={{color: 'red'}}>{error.description}</p>}
 </div>
 
 <div className='input-box'>
 <label htmlFor="brief" >Brief</label>
-<textarea name='brief' value={formdata.brief} onChange={handleOnChange} className='admin-input-textarea' rows='2' cols='10'></textarea>
+<textarea id="brief" name='brief' value={formdata.brief} onChange={handleOnChange} className='admin-input-textarea' rows='2' cols='10'></textarea>
 </div>
 
 <div className='input-box'>
-<label htmlFor="copy" >Copy</label>
-<textarea name='copy' value={formdata.copy} onChange={handleOnChange} className='admin-input-textarea' rows='2' cols='10'></textarea>
+<label  htmlFor="copy" >Copy</label>
+<textarea id="copy" name='copy' value={formdata.copy} onChange={handleOnChange} className='admin-input-textarea' rows='2' cols='10'></textarea>
 </div>
 
 
@@ -253,16 +281,6 @@ clientDetails.map(name=> (
 {/* <TagInput label='keywords' tags={formdata.keywords} setTags={setFormdata}/> */}
 
 
-
-
-
-
-<div className='input-group'>
-
-
-
-
-</div>
 
 <div className='input-box'>
 <label  htmlFor="contentType">Content Type</label>
@@ -304,7 +322,9 @@ clientDetails.map(name=> (
           </div>
 
           <p>{uploadPercentage}%</p> 
-        {uploadPercentage === 100 && alert('Uploaded')} 
+        {uploadPercentage === 100 && alert('Uploaded') & setTimeout(() => {
+           setUploadPercentage(0)
+        }, 1000)} 
 
 <div className='btn'>
   

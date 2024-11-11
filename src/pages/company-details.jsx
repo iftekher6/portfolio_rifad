@@ -3,6 +3,7 @@ import PageHeading from '../components/sections/pageHeading'
 import ProjectArticle from '../components/sections/projectArticle'
 import { ScrollRestoration, useParams } from 'react-router-dom'
 import jarvis from "../assets/images/client-logos/download.png"
+import Portfolio2 from '../components/sections/portfolio2'
 
 const CompanyDetails = () => {
     const {company} = useParams()
@@ -19,10 +20,11 @@ const CompanyDetails = () => {
     return (
         <>
             <PageHeading
-                heading={eachCompany.name}
+                heading={'Googly'}
                 description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit utsadi sfejdis aliquam, purus sit amet luctus venenatis, lectus magna sansit trandis fringilla urna, porttitor rhoncus dolor purus non enim dollors praesent tabasi elementum facilisis leo."}
+                style={"single-page-hero-area"}
             />
-            <ProjectArticle/>
+            <Portfolio2/>
             <ScrollRestoration/>
         </>
     )

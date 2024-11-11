@@ -12,8 +12,9 @@ import CompanyDetails from "../pages/company-details";
 
 
 export const router = createBrowserRouter([
-    {
+    {   
         path: "/",
+        id : "top",
         element: <RootLayout />,
         children: [
             {

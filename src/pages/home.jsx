@@ -11,16 +11,19 @@ import Resume from '../components/sections/resume'
 
 const Home = () => {
   return (
-    <>
-        {/* <Hero/> */}
+    <> 
+    <div id='top'>
+ {/* <Hero/> */}
         <HeroShowReel/>
         <About/>
         <Partners/>
         <Portfolio2/>
         <Resume />
-      
         <CallToAction/>
         <ScrollRestoration/>
+       
+    </div>
+       
     </>
   )
 }

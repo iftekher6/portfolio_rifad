@@ -19,18 +19,33 @@ const Portfolio2 = ({ className }) => {
 
 
     const [projectsData, setProjectsData] = useState([])
-    const [page, setPage] = useState(2)
+    const [page, setPage] = useState(1)
+    const [limit, setLimit] =useState(3)
+    const [hasMore, setHasMore] = useState(true)
 
     const getProjects = async() =>{
-        const response = await fetch(`${server}/api/v1/work/upload?page=${page}`)
-        const data = await response.json()
-        setProjectsData(prev=> [...prev, ...data.companies])
-        console.log(data.companies)
+       try {
+         const response = await fetch(`${server}/api/v1/work/upload?page=${page}&limit=${limit}`)
+         const data = await response.json()
+         if(data.companies){
+            setProjectsData(prev=> [...prev, ...data.companies])
+            setHasMore(data.hasMore)
+            
+         }
+         console.log(data.hasMore)
+       } catch (error) {
+        console.log(error)
+       }
      }
     
      useEffect(()=>{
          getProjects()
      },[page])
+
+
+    
+     //project length is greater than 3 meeans there are more videos than 3
+    //  console.log(projectsData.length)
      const handleCategoryClick = (item) => {
      setCategory(item)
         const randomAnimation = getRandomAnimation();
@@ -39,7 +54,13 @@ const Portfolio2 = ({ className }) => {
 
 
     const handlePagination = ()=>{
-        setPage(prev=> prev + 1)
+        if (hasMore) {
+            setPage(prevPage => prevPage + 1); // Load next page
+        } else {
+            setProjectsData([])    // Clear projects if going back
+            setPage(1);      // Reset to first page
+            setHasMore(true);       // Assume more data will be available initially
+        }
     }
  
 
@@ -63,7 +84,18 @@ const Portfolio2 = ({ className }) => {
                         {projectsData.map((project,id) => <Card key={id} _id={project._id} id={id} category={project.contentType} src={project.thumbnail} title={project.title}  client={project.client.client} tools={project.tools}   animationClass={animationClass} date={project.date} />)}
 
                     </div>
-                    <button onClick={handlePagination} className='pagination-btn'>Show more</button>
+                       
+
+                           {projectsData.length > 0 && (
+                <button onClick={handlePagination} className="pagination-btn">
+                    {hasMore ? "Show more" : "Back"}
+                </button>
+            )}
+                          
+                
+                        
+                    
+                
                 </div>
             </div>
         </section>
@@ -85,16 +117,16 @@ const Card = ({ category, title, src, animationClass, _id , id, date ,tools}) =>
                     <div className="project-content">
                         <span className="sub-title">{category}</span>
                         <h3 title={title}>{title}</h3>
-                        <div className="suggestion-tools">
-                            {tools.map(tool=> (
-                                <li>{tool}</li>
-                            ))}
+                        
+                        <div title={tools.map(tool=> tool)} className="suggestion-toolss ">
+                        {tools.slice(0,3).map(tool=>(
+                            <li>{tool}</li>
+                        ))}
                           </div>
-                          <span className='project-date'>{moment(date).year()}</span>
+                          {/* <span className='project-date'>{moment(date).year()}</span> */}
                     </div>
                 </div>
             </SlideUp>
          </div>
     )
 }
-

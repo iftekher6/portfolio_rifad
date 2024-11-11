@@ -44,6 +44,17 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.loading-spinner{
+ 
+    position: absolute;
+
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%); /* Centers the spinner exactly */
+    
+}
+
 .hero-container{
     position: relative;
     top: 0;
@@ -107,10 +118,11 @@ body {
   padding:.8px;
   border-color: black;
   border-radius: 25px;
-  width: 360px;
+  min-width: 360px;
   height: 53px;
   /* padding: 15px; */
   overflow: hidden;
+  transition: min-width 3s ease;
   /* box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 0px 0px; */
 
   }
@@ -153,15 +165,28 @@ body {
   }
   .search:focus{
     outline: none;
+    width: 400px;
+    
     border-color: transparent;
   }
 
   .icon{
-    width:30px;
+
+    width:40px;
+    height: 38px;
+    padding:6px;
+    margin-top: 5px;
+    border-radius: 50%;
     margin-left: 10px;
     margin-right: 10px;
-
+    background-color: red;
+    background-color: var(--border-color);
+    
   }
+.icon:hover {
+    padding:5px
+}
+
   /* span {
     margin: 0;
     padding: 0;
@@ -266,14 +291,94 @@ top:5px;
   .suggestions-container {
     position: absolute;
     top: 0px;
-    width: 100%;
-    background-color: rgba(60, 60, 60, 0.95);
+    max-width: 100%;
+    background-color: #151515;
     color: #fff;
     border-radius: 28px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-height: 200px;
+    min-height: 100px;
+    max-height: 210px;
     overflow-y: auto;
+
   }
+
+
+
+ .filter{
+    /* color: var(--white-color); */
+    padding: 20px;
+    /* height: 100px; */
+    /* background-color: red; */
+     display: flex;
+     top:-8px;
+    position: relative;
+    gap: 10px; 
+ }
+ .filter span {
+    color : grey;
+    font-weight: 800;
+ }
+
+
+.filter button{
+    position: relative;
+    display: flex;
+  background-color: transparent;
+  color: white;
+  font-size: 15px;
+  border: 1px solid var(--border-color);
+  padding-right: 18px;
+  padding-left: 8px;
+  border-radius: 12px;
+ }
+ .filterContainer {
+    position: absolute;
+     height: 50px;
+     width: 60px;
+     top:55px;
+     left: 95px;
+    overflow-x: hidden;
+    /* border-radius: 10px; */
+    background-color:  #151515;
+    display: flex;
+    flex-direction: column;
+  }
+.filterContainer{
+    height: 100%;
+    width: 80px;
+}
+
+.filterContainer span {
+    text-align: center;
+}
+
+.filterContainer span:hover{
+    background-color: black;
+    cursor: pointer;
+   
+}
+
+
+.svg{
+    position: absolute;
+    top:8px;
+    right: 2px;
+}
+.rotatedSVG{
+
+    transform: rotate(180deg);
+}
+.cancelSVG{
+    position: relative;
+    top: -5px;
+    background-color: red;
+}
+
+.showingResultYear {
+    font-size: 12px;
+    position: absolute;
+    top: 50px
+}
   /* .suggestions-container{
     position : absolute;
     top: 253px;
@@ -288,6 +393,16 @@ top:5px;
     /* display: none; */
     
   /* } */ 
+
+  .error-match{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .error-match span{
+    color:grey;
+  }
 .buttons-hero{
     display: flex;
     gap: 20px;
@@ -317,19 +432,21 @@ top:5px;
 .input-box {
     display: flex;
     flex-direction: column;
+    /* background-color: red; */
 }
 .progress-container {
     height: 15px;
     background-color: #e0e0e0;
     border-radius: 10px;
     margin: 10px 0;
-    width: 490px;
+    width: 90%;
   }
   .progress-bar {
     height: 100%;
     background-color: #8707ff ;
     /* background-color: var(); */
     border-radius: 5px;
+    width: 100%;
   }
 
 .admin-input {
@@ -504,7 +621,10 @@ top:5px;
     left: 22px
   }
   .suggestion-item {
+    /* background-color: red; */
+    max-width: 100%;
     padding: 10px;
+    border-top : 1px solid rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     cursor: pointer;
   }
@@ -513,24 +633,30 @@ top:5px;
     background-color: rgba(255, 255, 255, 0.1);
   }
   
+
+  /* .suggestion-item:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.1) ;
+  } */
   .suggestion-item:last-child {
     border-bottom: none;
   }
 .suggestion-flex{
     display: flex;
     padding: 10px;
-    gap: 20px
+    gap: 15px
 }
 
 .suggestion-image{
     /* background-color: red; */
     width: 90px;
+    flex-shrink: 0;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     backdrop-filter: blur(20px); /* Blur effect for the frosted glass */
     background: rgba(255, 255, 255, 0.2);
 }
 .suggestion-flex img {
     width: 70px;
+    
     height: 90px;
     object-fit: cover;
     margin-top: 13px;
@@ -539,11 +665,16 @@ top:5px;
 }
 .suggestion-content{
     margin-top: 10px;
+    flex-grow: 1;
+    overflow: hidden;
+
+
 }
 
 .suggestions-ul{
     display: flex;
     gap:5px;
+    font-size: 13px;
   
 }
 .suggestions-ul li{
@@ -552,15 +683,41 @@ top:5px;
     /* padding: 0 */
     /* background-color: red; */
     
+
+}
+
+.client-li{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+    ;
+}
+.contentType-li{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .suggestion-tools{
     display: flex;
+    flex-direction: row;
+    /* width: 20px; */
+    /* max-width: 100px; */
+    text-overflow: ellipsis;
+    /* white-space: wrap; */
+    max-height: 200px;
+    flex-wrap: wrap;
+    overflow: hidden;
+   background-color: transparent;
+    /* background-color: red;     */
     gap: 5px;
     margin-top: 5px;
     /* background-color: grey; */
 }
 .suggestion-tools li {
-    background-color: transparent;
+    /* white-space: nowrap; */
+    /* text-overflow: ellipsis; */
+    /* overflow: hidden; */
+    /* background-color: red; */
     border-radius: 12px;
     /* border-color: red; */
     border : 1px solid var(--border-color);
@@ -569,27 +726,57 @@ top:5px;
     padding: 0px 10px;
     font-size: 13px;
 }
-.project-content .suggestion-tools li {
-    background-color: transparent;
+
+/* Targeting the scrollbar track (background) */
+::-webkit-scrollbar {
+    width: 12px;               /* Width of the vertical scrollbar */
+    height: 12px;              /* Height of the horizontal scrollbar */
+}
+
+/* Style the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+    background-color: #888;    /* Color of the scrollbar thumb */
+    border-radius: 6px;        /* Rounded corners */
+    border: 2px solid var(--border-color);    /* Padding around the thumb for spacing */
+}
+
+/* Style the scrollbar track (background) */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;       /* Background color of the scrollbar track */
+    border-radius: 6px;
+}
+
+/* Hover effect on the scrollbar thumb */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;          /* Darker color on hover */
+}
+
+.project-content .suggestion-toolss {
+ max-width: 100%;
+ display: flex;
+ flex-direction: row;
+ gap: 4px;
+}
+.project-content .suggestion-toolss li {
+    /* background-color: transparent; */
     border-radius: 12px;
     /* border-color: red; */
     border : 1px solid var(--border-color);
     color: var(--border-color);
     text-align: center;
     padding: 0px 10px;
-    font-size: 12px;
-    position: relative;
-    top:-2px;
-    
+    font-size: 11px;
+    display: inline-block;
+ 
+
+
 }
-.project-date{
-    position: relative;
-    top:-30px;
-    left:235px;
-    font-weight: 800;
-}
+
 .suggestion-title{
     color: white;
+    white-space: nowrap;
+   
+    text-overflow: ellipsis;
 }
   .tag {
     display: flex;
@@ -2113,8 +2300,8 @@ html {
     /* padding-bottom: 100px; */
     /* background-color: #130f40;  */
     /* background-color :grey;  */
-    background-image: -webkit-linear-gradient(135deg, #130f40 0%, #000000 74%);
-    background-image: linear-gradient(315deg, #130f40 0%, #000000 74%);
+    /* background-image: -webkit-linear-gradient(135deg, #130f40 0%, #000000 74%);
+    background-image: linear-gradient(315deg, #130f40 0%, #000000 74%); */
     margin-bottom: 20px;
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 20px;
@@ -2683,6 +2870,9 @@ ul.extra-skills li i {
 .project-content {
     padding: 10px;
     margin-top: -20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
     /* overflow: hidden; */
     /* background-color: wheat; */
 }

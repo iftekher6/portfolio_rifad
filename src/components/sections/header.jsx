@@ -8,10 +8,10 @@ import { menuList } from '../../utlits/fackData/menuList';
 
 const Header = () => {
   const pathName = useLocation().pathname
-  console.log(pathName === '/about')
+  // console.log(pathName === '/about')
   const [displayHeader, setDisplayHeader] =  useState(false)
   const isSingleVideo = pathName === '/single-project' 
-  console.log(isSingleVideo)
+  // console.log(isSingleVideo)
   const [isSticky, setisSticky] = useState(false)
  
   
@@ -27,7 +27,7 @@ const Header = () => {
 
   const stickyHeader = () => {
       const scrollTop = window.scrollY
-      console.log(scrollTop)
+      // console.log(scrollTop)
       
       if (scrollTop > 85) {
           setisSticky(true)

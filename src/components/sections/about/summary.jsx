@@ -1,8 +1,9 @@
 import React from 'react'
 import profile from "../../../assets/images/about/Rifad.png"
+// import { aboutRef } from '../header'
 const Summary = () => {
     return (
-        <section id="about" className="about-area">
+        <section id="about" className="about-area" >
             <div className="container">
                 <div className="container-inner">
                     <div className="row align-items-center">
